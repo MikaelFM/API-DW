@@ -1,0 +1,145 @@
+section {
+    gap: 2rem;
+}
+
+section form {
+    width: 35rem;
+}
+
+section img {
+    width: 13rem;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.to-back {
+    fill: rgb(87, 87, 87);
+}
+
+.img .to-back:hover > svg {
+    fill: rgb(0, 0, 0);
+}
+
+
+.table-container {
+    width: 35rem;
+}
+
+table { 
+    border: 1px solid #ddd;
+    border-collapse: separate;
+    border-left: 0;
+    border-radius: 20px;
+    border-spacing: 0px;
+    width: 100%;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-collapse: separate;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th {
+    background-color: #531ABB;
+    color: white;
+}
+
+th, td {
+    line-height: 1.5;
+    padding: .5rem .5rem;
+    text-align: center;
+    vertical-align: top;
+    border-left: 1px solid #ddd;    
+}
+
+td {
+    border-top: 0.5px solid #ddd;    
+}
+
+thead tr th:first-child, 
+tbody:first-child tr:first-child td:first-child 
+{
+    border-radius: 20px 0 0 0;
+}
+
+thead tr th:last-child {
+    border-radius: 0px 20px 0 0;
+}
+
+tbody tr:last-child td:first-child 
+{
+    border-radius: 0 0 0 20px;
+}
+
+tbody tr:first-child td {
+    border-top: none;
+}
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h5, h6 {
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+h6 {
+    color: rgb(127, 127, 127);
+    font-size: 1.1rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 580px) {
+    section {
+        justify-content: start;
+        padding: 0 3rem;
+        gap: 5rem;
+    }
+    section .img-container {
+        margin-top: 4rem;
+    }
+    section form {
+        width: 100%;
+    }
+    .table-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    section {
+        padding: 0 1rem;
+    }
+    section form {
+        margin-top: 0;
+    }
+    .table-container {
+        width: 100%;
+    }
+    table {
+        font-size: 0.9rem;
+    }
+}

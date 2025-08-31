@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarBank</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <section>
+        <form method="get" action="/creditos">
+            <img src="d7f3c3cee17dd287689cc8d6c6874276d00f9a21(1)(1).png" alt="Logo FarBank">
+            <div class="row">
+                <div class="form-floating-label">
+                    <input type="text" id="cpf" name="cpf" placeholder="">
+                    <label for="cpf">Digite seu CPF</label>
+                </div>
+                <p class="error"><%= msg %> <a href="./cadastro">Cadastre-se</a></p>
+            </div>
+            <div class="actions">
+                <button type="submit" class="btn btn-primary submit-button">Consultar</button>
+                <button type="reset" class="btn btn-primary cancel-button">Limpar</button>
+            </div>
+        </form>
+    </section>
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+        var cpf = document.getElementById('cpf');
+        var maskOptions = {
+            mask: '000.000.000-00'
+        };
+        IMask(cpf, maskOptions);
+    </script>
+</body>
+</html>

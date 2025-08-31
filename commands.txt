@@ -1,0 +1,180 @@
+Prisma:
+npm install prisma --save-dev
+npx prisma init
+npx prisma db push        -> Manda alterações para o Prisma<- 
+npm install @prisma/client
+
+Nodemon:
+npm run dev
+
+Rodar Online com Refresh e sem o Nodemon
+node -watch index.js
+
+Rodar Server:
+npx prisma studio
+npm run dev
+
+
+
+Backup:
+// Função de validação dos campos do usuário
+/*
+function fieldsValidate(user) {
+  const cpf = user.cpf.replace(/\D/g, ""); // Remove caracteres não numéricos do CPF
+  if (user.age <= 0) {
+    throw new Error("Idade informada inválida.");
+  }
+  if (!cpf || cpf.length !== 11) {
+    throw new Error("CPF inválido. Deve conter 11 dígitos.");
+  }
+  if (!user.name) {
+    throw new Error("Nome inválido.");
+  }
+  if (user.income < 3000.0) {
+    throw new Error("Renda inválida. Deve ser superiror a 3000.00.");
+  }
+  if (!user.location) {
+    throw new Error("Localização inválida.");
+  }
+  return true; // Se todos os campos forem válidos, retorna true
+}
+  */
+
+/*
+function selectLoanOptions(income, location, age) {
+  if (income <= 3000.00) {
+    return [
+      { type: "PERSONAL", interest_rate: 4 }, 
+      { type: "GUARANTEED", interest_rate: 3 }
+    ];
+  } if (income > 3000.0 && income < 5000.0 && location === "Porto Alegre - RS" && age < 30) {
+    return [
+      { type: "PERSONAL", interest_rate: 4 },
+      { type: "GUARANTEED", interest_rate: 3 }
+    ];
+  } if (income >= 5000.00) {
+    return [
+      { type: "CONSIGNMENT", interest_rate: 2 }
+    ];
+  } else {
+    return ["Você não possui opções de crédito disponíveis no momento."];
+  }
+}
+  */
+
+/*
+function printInfo(req) {
+  return {
+    customer: req.body.customer || req.body.name,
+    loans: selectLoanOptions(req.body.income, req.body.location, req.body.age)
+  };
+}
+*/
+
+// Rota: POST /creditos
+/*
+app.post("/creditos", async (req, res) => {
+  try {
+    const userFields = {
+      age: req.body.age,
+      cpf: req.body.cpf,
+      name: req.body.name,
+      income: req.body.income,
+      location: req.body.location,
+    };
+    fieldsValidate(userFields); // Valida os campos do usuário
+    const user = await prisma.User.create({
+      data: userFields,
+    });
+    res.status(201).json(printInfo(req, userFields.name)); // retorna o usuário criado
+  } catch (error) {
+    if (error.code === "P2002") {
+      // Código de erro para violação de unique
+      return res.status(400).json({ message: "CPF já cadastrado." });
+    }
+    res.status(400).json({ message: error.message }); // Retorna erros de validação
+  }
+});
+*/
+
+/*
+// Rota: PUT /creditos
+app.put("/creditos/:cpf", async (req, res) => {
+  try {
+    const userFields = {
+      age: req.body.age,
+      cpf: req.body.cpf,
+      name: req.body.name,
+      income: req.body.income,
+      location: req.body.location,
+    };
+    fieldsValidate(userFields); // Valida os campos do usuário
+    await prisma.User.update({
+      where: {
+        cpf: req.params.cpf, // assume que o CPF é único
+      },
+      data: userFields,
+    });
+    res.status(201).json({ message: "Usuário atualizado com sucesso!" });
+  } catch (error) {
+    if (error.code === "P2002") {
+      return res.status(400).json({ message: "CPF já cadastrado." });
+    }
+    if (error.code === "P2025") {
+      return res.status(404).json({ message: "Usuário não encontrado." });
+    }
+    res.status(500).json({ message: error.message });
+  }
+});
+*/
+
+/*
+// Rota: DELETE /creditos
+app.delete("/creditos/:cpf", async (req, res) => {
+  try {
+    await prisma.User.delete({
+      where: {
+        cpf: req.params.cpf, // assume que o CPF é único e usado para identificar o usuário
+      },
+    });
+
+    res.status(200).json({ message: "Usuário deletado com sucesso!" });
+  } catch (error) {
+    if (error.code === "P2025") {
+      return res.status(404).json({ message: "Usuário não encontrado." });
+    }
+    res.status(500).json({ message: error.message });
+  }
+});
+*/
+
+/*
+// Rota: GET /usuarios
+app.get("/usuarios", async (req, res) => {
+  try {
+    const users = await prisma.User.findMany();
+    res.status(200).json(users); // Retorna todos os usuários
+  } catch (error) {
+    res.status(500).json({ message: error.message }); // Erro interno do servidor
+  }
+});
+*/
+
+/*
+// Rota: GET /creditos - por CPF
+app.get("/creditos/:cpf", async (req, res) => {
+  try {
+    const user = await prisma.User.findUnique({
+      where: {
+        cpf: req.params.cpf, // assume que o CPF é único e usado para identificar o usuário
+      },
+    });
+    res.status(200).json(user);
+  } catch (error) {
+    if (error.code === "P2025") {
+      return res.status(404).json({ message: "Usuário não encontrado." });
+    }
+    res.status(500).json({ message: error.message });
+  }
+});
+*/

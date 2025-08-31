@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarBank</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <section>
+        <div class="img-container">
+            <a href="/" class="to-back">
+                <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"/>
+                </svg>
+            </a>
+            <img src="d7f3c3cee17dd287689cc8d6c6874276d00f9a21(1)(1).png" alt="Logo FarBank">
+        </div>
+        <form method="post" action="/creditos">
+            <div class="input-group">
+                <div class="row">
+                    <div class="form-floating-label">
+                        <input type="text" name="cpf" id="cpf" placeholder="" value="<%= values.cpf %>">
+                        <label for="cpf">CPF</label>
+                    </div>
+                    <p class="error"><%= errors.cpf %></p>
+                </div>
+                <div class="row">
+                    <div class="form-floating-label">
+                        <input type="text" name="name" id="name" placeholder=""  value="<%= values.name %>">
+                        <label for="name">Nome</label>
+                    </div>
+                    <p class="error"><%= errors.name %></p>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="row">
+                    <div class="form-floating-label">
+                        <input type="text" name="age" id="age" placeholder="" value="<%= values.age %>">
+                        <label for="age">Idade</label>
+                    </div>
+                    <p class="error"><%= errors.age %></p>
+                </div>
+                <div class="row">
+                    <div class="form-floating-label">
+                        <input type="text" name="income" id="income" placeholder="" value="<%= values.income %>">
+                        <label for="income">Salário</label>
+                    </div>
+                    <p class="error"><%= errors.income %></p>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="row">
+                    <div class="form-floating-label">
+                        <input type="text" name="city" id="city" placeholder="" value="<%= values.city %>">
+                        <label for="city">Cidade</label>
+                    </div>
+                    <p class="error"></p>
+                </div>
+                <div class="row">
+                    <div class="form-floating-label">
+                        <select id="location" name="location">
+                            <option value="">Selecione o Estado</option>
+                            <option value="AC" <%= values.location === 'AC' ? 'selected' : '' %>>Acre (AC)</option>
+                            <option value="AL" <%= values.location === 'AL' ? 'selected' : '' %>>Alagoas (AL)</option>
+                            <option value="AP" <%= values.location === 'AP' ? 'selected' : '' %>>Amapá (AP)</option>
+                            <option value="AM" <%= values.location === 'AM' ? 'selected' : '' %>>Amazonas (AM)</option>
+                            <option value="BA" <%= values.location === 'BA' ? 'selected' : '' %>>Bahia (BA)</option>
+                            <option value="CE" <%= values.location === 'CE' ? 'selected' : '' %>>Ceará (CE)</option>
+                            <option value="DF" <%= values.location === 'DF' ? 'selected' : '' %>>Distrito Federal (DF)</option>
+                            <option value="ES" <%= values.location === 'ES' ? 'selected' : '' %>>Espírito Santo (ES)</option>
+                            <option value="GO" <%= values.location === 'GO' ? 'selected' : '' %>>Goiás (GO)</option>
+                            <option value="MA" <%= values.location === 'MA' ? 'selected' : '' %>>Maranhão (MA)</option>
+                            <option value="MT" <%= values.location === 'MT' ? 'selected' : '' %>>Mato Grosso (MT)</option>
+                            <option value="MS" <%= values.location === 'MS' ? 'selected' : '' %>>Mato Grosso do Sul (MS)</option>
+                            <option value="MG" <%= values.location === 'MG' ? 'selected' : '' %>>Minas Gerais (MG)</option>
+                            <option value="PA" <%= values.location === 'PA' ? 'selected' : '' %>>Pará (PA)</option>
+                            <option value="PB" <%= values.location === 'PB' ? 'selected' : '' %>>Paraíba (PB)</option>
+                            <option value="PR" <%= values.location === 'PR' ? 'selected' : '' %>>Paraná (PR)</option>
+                            <option value="PE" <%= values.location === 'PE' ? 'selected' : '' %>>Pernambuco (PE)</option>
+                            <option value="PI" <%= values.location === 'PI' ? 'selected' : '' %>>Piauí (PI)</option>
+                            <option value="RJ" <%= values.location === 'RJ' ? 'selected' : '' %>>Rio de Janeiro (RJ)</option>
+                            <option value="RN" <%= values.location === 'RN' ? 'selected' : '' %>>Rio Grande do Norte (RN)</option>
+                            <option value="RS" <%= values.location === 'RS' ? 'selected' : '' %>>Rio Grande do Sul (RS)</option>
+                            <option value="RO" <%= values.location === 'RO' ? 'selected' : '' %>>Rondônia (RO)</option>
+                            <option value="RR" <%= values.location === 'RR' ? 'selected' : '' %>>Roraima (RR)</option>
+                            <option value="SC" <%= values.location === 'SC' ? 'selected' : '' %>>Santa Catarina (SC)</option>
+                            <option value="SP" <%= values.location === 'SP' ? 'selected' : '' %>>São Paulo (SP)</option>
+                            <option value="SE" <%= values.location === 'SE' ? 'selected' : '' %>>Sergipe (SE)</option>
+                            <option value="TO" <%= values.location === 'TO' ? 'selected' : '' %>>Tocantins (TO)</option>
+                        </select>
+                    </div>
+                    <p class="error"><%= errors.location %></p>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" class="btn btn-primary submit-button">Consultar</button>
+                <button onclick="window.location.href = '/cadastro'" type="button" class="btn btn-primary cancel-button">Limpar</button>
+            </div>
+        </form>
+    </section>
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+        IMask(document.getElementById('cpf'), {
+            mask: '000.000.000-00'
+        });
+
+        IMask(document.getElementById('age'), {
+            mask: Number,
+            scale: 0,
+            max: 120 
+        });
+
+        IMask(document.getElementById('income'), {
+            mask: Number,
+            scale: 2,
+            signed: false,
+            thousandsSeparator: '.', 
+            padFractionalZeros: true,
+            normalizeZeros: true,
+            radix: ',',
+            mapToRadix: ['.'],
+            prefix: 'R$ '
+        });
+
+    </script>
+</body>
+</html>

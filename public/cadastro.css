@@ -1,0 +1,100 @@
+section {
+    gap: 2rem;
+    width: auto;
+    padding: 1rem 4rem;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.to-back {
+    fill: rgb(87, 87, 87);
+}
+
+.img .to-back:hover > svg {
+    fill: rgb(0, 0, 0);
+}
+
+section form {
+    gap: 1rem;
+}
+
+.form-floating-label input:focus + label,
+.form-floating-label input:hover + label,
+.form-floating-label input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 1.5rem;
+    font-size: 0.9rem;
+    background: white;
+    color: #531ABB;
+    width: fit-content;
+}
+
+section img {
+    width: 13rem;
+}
+
+section form .input-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+section form .row {
+    padding: 0.5vw 0;
+}
+
+section form .row .error {
+    font-size: 0.8rem;
+    margin: 0;
+    text-align: right;
+    padding: 0.2rem 1rem;
+}
+
+section form .actions {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+  body {
+    background-color: white;
+  }  
+  section {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 760px) {
+    section {
+        padding-top: 2rem;
+    }
+    section form .input-group {
+        gap: 1rem;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 450px) {
+    section form {
+        margin-top: 0;
+    }
+    section img {
+        width: 14rem;
+    }
+    section {
+        justify-content: start;
+        padding-top: 6rem;
+    }
+    section form input {
+        width: 14rem;
+    }
+    section form .actions {
+        justify-content: center;
+    }
+}

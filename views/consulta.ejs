@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarBank</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="consulta.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <section>
+        <div class="img-container">
+            <a href="/" class="to-back">
+                <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"/>
+                </svg>
+            </a>
+            <img src="d7f3c3cee17dd287689cc8d6c6874276d00f9a21(1)(1).png" alt="Logo FarBank">
+        </div>
+        <div class="description">
+            <h6>Créditos Disponívies</h6>
+            <h5><%= nome %></h5>
+        </div>
+        <div class="table-container">
+            <% if (creditos.length > 0) { %>
+             <table class="table">
+                <thead>
+                    <th>Tipo de Crédito</th>
+                    <th>Taxa de Juros</th>
+                </thead>
+                <tbody>
+                    <% creditos.forEach(function(credito) { %>
+                        <tr>
+                            <td><%= credito.description %></td>
+                            <td><%= credito.interest_rate %>%</td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <% } else if (typeof creditos !== "undefined") { %>
+                <p>Você não tem acesso a créditos no momento</p>
+            <% } %>
+        </div>
+        <form>
+            <div class="actions">
+                <input id="cpf" type="hidden" name="cpf" value="<%= cpf %>">
+                <button type="button" id="alterar" class="btn btn-primary submit-button" onclick="changeUser()">Alterar</button>
+                <button type="button" id="excluir" class="btn btn-primary cancel-button" onclick="deleteUser()">Excluir</button>
+            </div>
+        </form>
+    </section>
+    <script>
+        function getCPF(){
+            return document.getElementById('cpf').value;
+        }
+
+        function deleteUser(){
+            const cpf = getCPF();
+            fetch(`/creditos/${cpf}`, {
+                method: "DELETE",
+            })
+            .then(data => window.location.href = '/')
+            .catch(err => {
+                console.error("Erro:", err);
+            });
+        }
+
+        function changeUser(){
+            const cpf = getCPF();
+            window.location.href = `/cadastro?cpf=${cpf}`;
+        }
+    </script>
+</body>
+</html>

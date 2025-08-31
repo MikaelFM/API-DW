@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=TASA+Explorer:wght@400..800&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background: linear-gradient(180deg, #531ABB 1%, #381977 66.92%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    background-color: white;
+    width: 680px;
+    height: 480px;
+    box-shadow: 8px 8px 40px 0px #9A62FF;
+    gap: 10vh;
+}
+
+section img {
+    width: 18rem;
+}
+
+section form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+section form input, section form select {
+    font-family: inherit;
+    background-color: white;
+    border: 1px solid rgb(197, 197, 197);
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    width: 23rem;
+    color: rgb(58, 58, 58);
+}
+
+ section form select {
+    width: 27.5rem;
+}
+
+section form input:focus, section form input:focus-visible {
+    border: 1px solid #531ABB;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-floating-label {
+  position: relative;
+}
+
+.form-floating-label label {
+    font-size: 1rem;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.form-floating-label input:focus + label,
+.form-floating-label input:hover + label,
+.form-floating-label input:not(:placeholder-shown) + label {
+  top: -1px;
+  left: 1.5rem;
+  font-size: 0.9rem;
+  background: white;
+  padding: 0 4px;
+  color: #531ABB;
+  width: fit-content;
+}
+
+section form p.error {
+    font-family: "Montserrat", sans-serif;
+    color: red;
+    margin-top: 1rem;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+section form .error a {
+    color: #381977;
+    font-weight: bold;
+}
+
+section form .actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+}
+
+section form button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+}
+
+section form button.cancel-button {
+    background-color: white;
+    border: 1px solid #521abb;
+    color: #521abb;
+}
+
+section form button.cancel-button:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+section form button.submit-button {
+    background-color: #521abb;
+    color: white;
+    border: none;
+}
+
+section form button.submit-button:hover {
+    background-color: #381977;
+}
+
+@media (max-width: 680px) {
+  section {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 450px) {
+    section img {
+        width: 14rem;
+    }
+    section form {
+        margin-top: -6rem;
+        gap: 4rem
+    }
+    section form input {
+        width: 14rem;
+    }
+    section form select {
+        width: 18rem;
+    }
+    section form .actions {
+        justify-content: center;
+    }
+}

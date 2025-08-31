@@ -1,0 +1,23 @@
+{
+  "name": "api_emprestimo",
+  "version": "1.0.0",
+  "description": "API 4º Semestre - Emprestimo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch --no-warnings index.js",
+    "start": "node index.js",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev"
+  },
+  "author": "MM | Mateus Matana",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.14.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.14.0"
+  }
+}
