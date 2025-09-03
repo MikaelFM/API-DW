@@ -81,13 +81,13 @@ section form input:focus, section form input:focus-visible {
 .form-floating-label input:focus + label,
 .form-floating-label input:hover + label,
 .form-floating-label input:not(:placeholder-shown) + label {
-  top: -1px;
-  left: 1.5rem;
-  font-size: 0.9rem;
-  background: white;
-  padding: 0 4px;
-  color: #531ABB;
-  width: fit-content;
+    top: -1px;
+    left: 1.5rem;
+    font-size: 0.9rem;
+    background: white;
+    padding: 0 4px;
+    color: #531ABB;
+    width: fit-content;
 }
 
 section form p.error {

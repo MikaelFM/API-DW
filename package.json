@@ -9,7 +9,7 @@
     "prisma:generate": "npx prisma generate",
     "prisma:migrate": "npx prisma migrate dev"
   },
-  "author": "MM | Mateus Matana, AC | Ana Carolina, GV | Gustavo Vieira, MFM | Mikael Fernandes Moreira",
+  "author": "MM | Mateus Matana, AC | Ana Carolina, GV | Gustavo Vieira, MF | Mikael Fernandes",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.14.0",

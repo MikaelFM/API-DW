@@ -59,7 +59,7 @@ section form .actions {
     margin-top: 0;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1050px) {
   body {
     background-color: white;
   }  
@@ -70,8 +70,9 @@ section form .actions {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 950px) {
     section {
+        background-color: white;
         padding-top: 2rem;
     }
     section form .input-group {
